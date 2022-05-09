@@ -15,8 +15,7 @@ const modeBtns = document.querySelectorAll(".mode");
 let gridBoard = false;
 let draw = false;
 let drawMode = "normal";
-let defaultGridColor = "white";
-let defaultPixelColor = "white";
+let defaultPixelColor = "rgba(255,255,255,1";
 
 //####################### LISTENERS #######################
 
@@ -54,10 +53,31 @@ function setDrawMode(event) {
 
 // paint pixel in chosen color
 function changePixelColor(wrapper) {
+    let opacity = window.getComputedStyle(wrapper).getPropertyValue("opacity");
     if (drawMode === "normal") {
         wrapper.style.backgroundColor = $color.value;
+        opacity = 1;
+        wrapper.style.setProperty("--opacity", opacity);
     } else if (drawMode === "random") {
-        wrapper.style.backgroundColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+        wrapper.style.backgroundColor = `rgba(
+        ${Math.random() * 255},
+        ${Math.random() * 255},
+        ${Math.random() * 255},
+        ${Math.random()})`;
+    } else if (drawMode === "lightshade") {
+        let min = parseFloat(opacity);
+        min = min - 0.1;
+        if (min < 0) {
+            min = 0;
+        }
+        wrapper.style.setProperty("opacity", min);
+    } else if (drawMode === "darkshade") {
+        let max = parseFloat(opacity);
+        max = max + 0.1;
+        if (max > 1) {
+            max = 1;
+        }
+        wrapper.style.setProperty("opacity", max);
     }
 }
 
