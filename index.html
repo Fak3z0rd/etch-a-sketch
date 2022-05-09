@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="./index.js" defer></script>
-</head>
-<body>
-    <div id="main" class="container">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="./index.js" defer></script>
+    </head>
+    <body>
+        <div id="menu" class="menu">
+            <input type="color" name="color" id="color" />
 
-    </div>
-    
-</body>
+            <div class="menu-item">
+                <h5 id="grid-size"></h5>
+                <input type="range" name="size" id="size" min="1" max="100" value="16" />
+            </div>
+
+            <button id="normal" class="menu-btn">Normal Mode</button>
+            <button id="random" class="menu-btn">Random Color Mode</button>
+            <button id="lightshade" class="menu-btn">Light Shade Mode</button>
+            <button id="darkshade" class="menu-btn">Dark Shade Mode</button>
+            <button id="clear" class="menu-btn">Clear Canvas</button>
+        </div>
+        <div id="main" class="container"></div>
+    </body>
 </html>
