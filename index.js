@@ -15,7 +15,7 @@ const modeBtns = document.querySelectorAll(".mode");
 let gridBoard = false;
 let draw = false;
 let drawMode = "normal";
-let defaultPixelColor = "rgba(255,255,255,1";
+let defaultPixelColor = "rgba(255,255,255,1)";
 
 //####################### LISTENERS #######################
 
@@ -53,26 +53,25 @@ function setDrawMode(event) {
 
 // paint pixel in chosen color
 function changePixelColor(wrapper) {
-    let opacity = window.getComputedStyle(wrapper).getPropertyValue("opacity");
+    let opacity = parseFloat(window.getComputedStyle(wrapper).getPropertyValue("opacity"));
     if (drawMode === "normal") {
         wrapper.style.backgroundColor = $color.value;
         opacity = 1;
         wrapper.style.setProperty("--opacity", opacity);
     } else if (drawMode === "random") {
-        wrapper.style.backgroundColor = `rgba(
+        wrapper.style.backgroundColor = `rgb(
         ${Math.random() * 255},
         ${Math.random() * 255},
-        ${Math.random() * 255},
-        ${Math.random()})`;
+        ${Math.random() * 255})`;
     } else if (drawMode === "lightshade") {
-        let min = parseFloat(opacity);
+        let min = opacity;
         min = min - 0.1;
         if (min < 0) {
             min = 0;
         }
         wrapper.style.setProperty("opacity", min);
     } else if (drawMode === "darkshade") {
-        let max = parseFloat(opacity);
+        let max = opacity;
         max = max + 0.1;
         if (max > 1) {
             max = 1;
@@ -110,6 +109,7 @@ function clearCells() {
     const cells = document.querySelectorAll(".pixel");
     cells.forEach((e) => {
         e.style.backgroundColor = defaultPixelColor;
+        e.style.opacity = 1;
     });
 }
 

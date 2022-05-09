@@ -9,21 +9,30 @@
         <script src="./index.js" defer></script>
     </head>
     <body>
-        <div id="menu" class="menu">
-            <input type="color" name="color" id="color" />
-
-            <div class="menu-item">
-                <h5 id="grid-size"></h5>
-                <input type="range" name="size" id="size" min="1" max="100" value="16" />
+        <header>
+            <h1>ETCH-A-SKETCH</h1>
+        </header>
+        <main>
+            <div id="menu" class="menu col left">
+                <div class="menu-item">
+                    <h5>Color picker</h5>
+                    <input type="color" name="color" id="color" />
+                </div>
+                <div class="menu-item">
+                    <h5 id="grid-size"></h5>
+                    <input type="range" name="size" id="size" min="1" max="100" value="16" />
+                </div>
+                <button id="normal" class="menu-btn mode">Normal Mode</button>
+                <button id="random" class="menu-btn mode">Random Color Mode</button>
+                <button id="lightshade" class="menu-btn mode">Light Shade Mode</button>
+                <button id="darkshade" class="menu-btn mode">Dark Shade Mode</button>
+                <button id="clear" class="menu-btn">Clear Canvas</button>
+                <button id="togglepixelborder" class="menu-btn">Grid Border</button>
             </div>
-
-            <button id="normal" class="menu-btn mode">Normal Mode</button>
-            <button id="random" class="menu-btn mode">Random Color Mode</button>
-            <button id="lightshade" class="menu-btn mode">Light Shade Mode</button>
-            <button id="darkshade" class="menu-btn mode">Dark Shade Mode</button>
-            <button id="clear" class="menu-btn">Clear Canvas</button>
-            <button id="togglepixelborder" class="menu-btn">Grid Border</button>
-        </div>
-        <div id="main" class="container"></div>
+            <div class="col right">
+                <div id="main" class="container"></div>
+            </div>
+        </main>
+        <footer>Made by <a href="https://github.com/Fak3z0rd">Vinicius Meireles</a></footer>
     </body>
 </html>

@@ -10,17 +10,56 @@ body {
 }
 
 body {
-    background-color: black;
+    background-color: #f2f2f2;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
+main {
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+footer,
+header {
+    background-color: #0d0d0d;
+    color: #6c6a6a;
+
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.right {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+    color: white;
+}
 .container {
     --size: 16;
     --resolution: 600px;
     display: grid;
-    border: 5px solid gray;
+    border: 5px solid #0d0d0d;
     border-radius: 2px;
     width: var(--resolution);
     height: var(--resolution);
@@ -30,6 +69,7 @@ body {
     gap: 0px;
     padding: 3px;
     background-color: white;
+    margin-bottom: 20px;
 }
 
 .pixel {
@@ -47,22 +87,16 @@ body {
     border: 0.5px solid gray;
 }
 
-.active {
-    background-color: rgb(5, 9, 81);
-    color: white;
-    border-color: white;
-}
-
 #menu {
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
     align-items: center;
-    background-color: rgb(87, 87, 87);
+    background-color: #3d3d3d;
     padding: 50px;
     color: white;
-    border-radius: 5px;
+    height: 100%;
 }
 
 .menu-item {
@@ -70,12 +104,29 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
 .menu-btn {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
+    border-color: #f2cb05;
+    background-color: #0d0d0d;
+    font-size: 15px;
+    color: #f2cb05;
+    border-radius: 20px;
+}
+
+.menu-btn:hover {
+    cursor: pointer;
+    background: rgba(255,255,255,0.3);
+}
+
+.active {
+    background-color: #0d0d0d;
+    border-color: #f24405;
+    color: #f24405;
 }
 
 input[type="color"] {
