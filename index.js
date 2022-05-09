@@ -15,7 +15,6 @@ const modeBtns = document.querySelectorAll(".mode");
 let gridBoard = false;
 let draw = false;
 let drawMode = "normal";
-let defaultPenColor = "black";
 let defaultGridColor = "white";
 let defaultPixelColor = "white";
 
@@ -65,7 +64,11 @@ function makeGrid(size) {
     $gridSize.textContent = `${size} x ${size}`;
     for (let i = 0; i < size * size; i++) {
         const div = document.createElement("div");
-        div.className = "pixel";
+        if (gridBoard) {
+            div.className = "pixel border";
+        } else {
+            div.className = "pixel";
+        }
         div.addEventListener("mouseover", () => {
             if (draw) {
                 changePixelColor(div);
@@ -89,6 +92,7 @@ function clearCells() {
 function toggleGridBorder() {
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach((pixel) => pixel.classList.toggle("border"));
+    gridBoard = !gridBoard;
 }
 
 // draw a default grid (16x16 pixels)
