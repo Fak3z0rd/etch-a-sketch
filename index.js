@@ -54,7 +54,11 @@ function setDrawMode(event) {
 
 // paint pixel in chosen color
 function changePixelColor(wrapper) {
-    wrapper.style.backgroundColor = $color.value;
+    if (drawMode === "normal") {
+        wrapper.style.backgroundColor = $color.value;
+    } else if (drawMode === "random") {
+        wrapper.style.backgroundColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+    }
 }
 
 // draw grid of pixels in the chosen size
